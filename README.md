@@ -20,9 +20,9 @@ Each of the shapes triggers a note when it’s hit. Users can navigate the space
 
 There are three different shapes of musical objects corresponding to three different sets of sounds. Each set has six notes, chosen from a pentatonic scale. 
 
-Spheres: Percussion (Conga, Woodblock, COWBELL!)
-Triangular Pyramids: Voice + Flute
-Cubes: Marimba
+* Spheres: Percussion (Conga, Woodblock, COWBELL!)
+* Triangular Pyramids: Voice + Flute
+* Cubes: Marimba
 
 Sounds are positioned in 3D space using the Web Audio API’s PannerNode. 
 <br>
