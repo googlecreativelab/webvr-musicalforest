@@ -1,0 +1,12 @@
+name: "aframe-daydream-controller-component"
+description:
+    "Aframe component for daydream"
+
+third_party {
+  url {
+    type: GIT
+    value: "https://github.com/ryanbetts/aframe-daydream-controller-component"
+  }
+  version: ""
+  last_upgrade_date { year: 2017 month: 3 day: 13 }
+}

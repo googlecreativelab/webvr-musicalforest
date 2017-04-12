@@ -1,0 +1,8 @@
+var CONFIG = {}
+CONFIG.DEFAULT_REGION = "{{default_region}}";
+
+CONFIG.SERVERS = {
+{% for server in servers %}
+    "{{server.name}}":"{{server.hostname}}",
+{% endfor %}
+};

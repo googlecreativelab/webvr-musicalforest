@@ -1,0 +1,90 @@
+# Copyright 2017 Google Inc.
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+# limitations under the License.
+
+###########################################################################
+# DO NOT MODIFY THIS FILE WITHOUT UNDERSTANDING THE SECURITY IMPLICATIONS #
+###########################################################################
+
+# The version is automatically generated based on the current git hash.
+# If there are uncommitted changes, a '-dev' suffix will be added. You do
+# not need to modify it here.
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+#        - url: /
+#          static_files: "index.html"
+#          secure: always
+#          upload: index\.html
+#          http_headers:
+#            X-Frame-Options: "DENY"
+#            Strict-Transport-Security: "max-age=2592000; includeSubdomains"
+#            X-Content-Type-Options: "nosniff"
+#            X-XSS-Protection: "1; mode=block"
+
+        - url: /build/
+          static_dir: build/
+          secure: always
+          http_headers:
+            X-Frame-Options: "DENY"
+            Strict-Transport-Security: "max-age=2592000; includeSubdomains"
+            X-Content-Type-Options: "nosniff"
+            X-XSS-Protection: "1; mode=block"
+
+        - url: /static/
+          static_dir: static/
+          secure: always
+          http_headers:
+            X-Frame-Options: "DENY"
+            Strict-Transport-Security: "max-age=2592000; includeSubdomains"
+            X-Content-Type-Options: "nosniff"
+            X-XSS-Protection: "1; mode=block"
+
+
+
+# All URLs should be mapped via the *_ROUTES variables in the src/main.py file.
+# See https://webapp-improved.appspot.com/guide/routing.html for information on
+# how URLs are routed in the webapp2 framework. Do not add additional handlers
+# directly here.
+        - url: /.*
+          script: python.main.app
+          secure: always
+
+libraries:
+        - name: django
+          version: latest
+
+        - name: jinja2
+          version: latest
+
+        - name: webapp2
+          version: latest
+
+skip_files:
+         - ^(.*/)?#.*#$
+         - ^(.*/)?.*~$
+         - ^(.*/)?.*\.py[co]$
+         - ^(.*/)?.*/RCS/.*$
+         - ^(.*/)?\..*$
+         - README
+         - util.sh
+         - run_tests.py
+         - .*_test.py
+         - js/.*
+         - backend/.*
+         - ^node_modules/(.*/)?
+         - ^(.*/)?app\.yaml
+         - ^(.*/)?app\.yml
+         - ^\.git/.*

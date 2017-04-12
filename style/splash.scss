@@ -1,0 +1,563 @@
+@font-face {
+  font-family: 'PlatformMedium';
+  src: url('/static/fonts/Platform-Medium-Web.eot');
+  src: url('/static/fonts/Platform-Medium-Web.eot?#iefix') format('embedded-opentype'),
+       url('/static/fonts/Platform-Medium-Web.woff2') format('woff2'),
+       url('/static/fonts/Platform-Medium-Web.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'PlatformRegular';
+  src: url('/static/fonts/Platform-Regular-Web.eot');
+  src: url('/static/fonts/Platform-Regular-Web.eot?#iefix') format('embedded-opentype'),
+       url('/static/fonts/Platform-Regular-Web.woff2') format('woff2'),
+       url('/static/fonts/Platform-Regular-Web.woff') format('woff');
+}
+
+html, body{
+  height: 100%;
+  font-family: 'PlatformRegular', sans-serif;
+  letter-spacing: 0.05em;
+  color: white;
+  overflow:hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+@mixin mobilePhone {
+	@media (max-width:540px), (max-height:540px){
+		@content;
+	}
+}
+
+// used to hide navbars in older mobile browsers
+#spacer { height: 1px; }
+
+#splash {
+	z-index:1000;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: block;
+	overflow:hidden;
+
+	&.invisible {
+		display: none;
+	}
+
+	// ----------------------------------------------------
+	// background image
+	// ----------------------------------------------------
+
+	@media screen and (max-aspect-ratio: 1/1){
+		background-image: url(/static/img/SplashMobileHiRes2.jpg);
+	}
+
+	$hiResCross : 1080px;
+
+	@media screen and (min-aspect-ratio: 1/1) and (max-width: $hiResCross){
+		background-image: url(/static/img/SplashDesktopMedR.jpg);
+	}
+
+	@media screen and (min-aspect-ratio: 1/1) and (min-width: $hiResCross){
+		background-image: url(/static/img/SplashDesktopHiR.jpg) ;
+	}
+
+	@media screen and (max-height: 600px){
+		background-position-y: -50px;
+	}
+
+	background-position-x: center;
+	background-position-y: center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  cover;
+    background-color: rgb(255,175,170);
+
+    // ----------------------------------------------------
+    // enter buttons
+    // ----------------------------------------------------
+
+	#webvr-loader {
+
+	}
+
+	$buttonWidth : 195px;
+	$buttonHeight : 55px;
+
+	#enter-container {
+		position: absolute;
+		left: 50%;
+        bottom: 25%;
+		@media screen and (max-height: 320px){
+			bottom: 60px !important;
+			transform: scale(0.6) translate(-80%, 0);
+		}
+		height: $buttonHeight;
+		width: $buttonWidth;
+		transform: translate(-50%, 0);
+		pointer-events: none;
+
+		&.loaded {
+
+			pointer-events: initial;
+
+			#enterButton {
+				opacity: 1;
+			}
+
+			#loader {
+				opacity: 0;
+			}
+		}
+
+		#loader {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			line-height: $buttonHeight;
+			border: 2px solid white;
+			box-sizing: border-box;
+			padding-left: 45px;
+			font-weight: 500;
+            letter-spacing: 0.05em;
+
+			img {
+				position: absolute;
+				right: 40px;
+				top: 48%;
+				transform: translate(0, -50%);
+				width: $buttonHeight * 0.5;
+				height: $buttonHeight * 0.45;
+			}
+		}
+
+		#loader, #enterButton{
+			transition: opacity 0.2s;
+		}
+
+		#enterButton {
+			font-family: 'PlatformRegular', sans-serif;
+            letter-spacing: 0.05em;
+			display: block;
+			font-size: 16px;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+
+
+			.webvr-ui-button {
+				border: 2px solid white;
+				position: absolute;
+				transform: translate(-50%, 0)!important;
+				top: 0px!important;
+				background-color: transparent;
+				white-space: nowrap;
+				.webvr-ui-title {
+					font-size: 16px;
+				}
+			}
+
+			#enter-360{
+				position: absolute;
+				left: 50%;
+				bottom: -30px;
+				transform: translate(-50%, 0);
+				width: 100%;
+				font-size: 14px;
+				text-align: center;
+				width: 220px;
+				text-decoration: underline;
+				cursor: pointer;
+
+				@include mobilePhone {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+
+	// ----------------------------------------------------
+	// about secondary
+	// ----------------------------------------------------
+
+	$headphoneSize : 25px;
+	$topCornerMargin : 20px;
+	$buttonSize : 30px;
+	$pink : rgb(255,175,170);
+    $mediumSize : 700px;
+    $desktopMargin : 20%;
+    $mobileMargin : 5%;
+
+	#headphones {
+		position: absolute;
+        left: $topCornerMargin;
+		top: $topCornerMargin + 5px;
+		width: $headphoneSize;
+		height: $headphoneSize;
+		overflow: hidden;
+		transition: width 0.15s;
+
+		&:hover {
+			width: 210px;
+		}
+
+		.icon {
+			height: 90%;
+			width: auto;
+			position: absolute;
+			left: 3.5px;
+		}
+
+		.text {
+			line-height: $buttonSize;
+			height: $buttonSize;
+			font-size: 12px;
+			width: 160px;
+			position: absolute;
+			text-align: right;
+			left: $headphoneSize + 5px;
+		}
+	}
+
+	#headphones, #about-button {
+		background-color: white;
+		border-radius: $buttonSize/2;
+		width: $buttonSize;
+		height: $buttonSize;
+		color: $pink;
+		text-align: center;
+		line-height: $buttonSize;
+		opacity: 0.9;
+	}
+
+	#about-button {
+		z-index: 1;
+		top: $topCornerMargin;
+		right: $topCornerMargin;
+		visibility: hidden;
+		padding: 1px;
+		position: absolute;
+		cursor: pointer;
+		font-size: 20px;
+		img {
+			width: 30px;
+		}
+	}
+
+	#about-button.visible {
+		visibility: visible;
+	}
+
+    // ----------------------------------------------------
+	// about
+	// ----------------------------------------------------
+	#about {
+		z-index: 1;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		position: absolute !important;
+		visibility: hidden;
+		background-color: rgba(247,158,151,0.97);
+		z-index: 1000;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+        font-size: calc(0.8em) !important;
+
+        .content {
+            margin-top: -0vh;
+            margin-right:$desktopMargin;
+            margin-left: $desktopMargin;
+
+            @media (max-width:$mediumSize) {
+                margin-right:$mobileMargin;
+                margin-left: $mobileMargin;
+            }
+        }
+        h1 {
+            font-family: 'PlatformMedium', sans-serif;
+            font-size: 7.0vw;
+            line-height: 0%;
+        }
+
+        .description {
+            left:0px;
+			margin-top: -0vh;
+            text-decoration: none;
+            p {
+                max-width: 50%;
+                font-weight: 300;
+        		color: #FFF;
+
+                @media (max-width:$mediumSize) {
+                    max-width: 100%;
+                }
+
+                a {
+                    font-weight: 300;
+            		text-decoration: underline;
+            		color: #8396F3;
+            	}
+        	}
+        }
+
+        img {
+            z-index:-1;
+            position: absolute;
+            top: 45%;
+            right: 0px;
+            margin-right:25%;
+            width: 25%;
+            height: auto;
+            display:block;
+
+            @media (max-width:$mediumSize) {
+                top: initial;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 0%;
+                width: 50%;
+            }
+
+            @media screen and (orientation:portrait) and (max-width:$mediumSize) {
+                display: block;
+            }
+            @media screen and (orientation:landscape) and (max-width:$mediumSize){
+                display: none;
+            }
+        }
+
+		.xbutton {
+			width:20px;
+			height:20px;
+			font-size: 20px;
+			border: none;
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			cursor: pointer;
+		}
+
+		.close {
+			// position: fixed;
+			// width: 32px;
+			// height: 32px;
+			// opacity: 0.75;
+		}
+
+		.close:hover {
+			opacity: 1;
+		}
+
+		.close:before, .close:after {
+			position: absolute;
+			left: 15px;
+			content: ' ';
+			height: 33px;
+			width: 2px;
+			background-color: #FFF;
+		}
+
+		.close:before {
+			transform: rotate(45deg);
+		}
+
+		.close:after {
+			transform: rotate(-45deg);
+		}
+
+	}
+
+	#about.visible {
+		visibility: visible;
+	}
+
+    // ----------------------------------------------------
+	// badges
+	// ----------------------------------------------------
+	#badges {
+
+		.friends-with, .webvr-logo, .pipe {
+			position: absolute;
+			bottom: 17px;
+		}
+		.friends-with img, .webvr-logo img {
+			width: 100%;
+		}
+
+		.webvr-logo {
+			width: 100px;
+			left: 15px;
+		}
+		.friends-with {
+			width: 100px;
+			left: 145px;
+		}
+		.pipe {
+			left: 130px;
+			height:60px;
+			border-right: 1px solid rgba(255,255,255,0.75);
+		}
+
+		@include mobilePhone {
+			.friends-with img, .webvr-logo img {
+				width: 70%;
+			}
+			.friends-with {
+				left: 115px;
+				width: 100px;
+			}
+			.pipe {
+				left: 100px;
+				height:45px;
+				border-right: 1px solid rgba(255,255,255,0.75);
+			}
+		}
+	}
+
+	#legal {
+		opacity: 0.75;
+		position:absolute;
+		right: 20px;
+		bottom: 21px;
+		font-family: 'PlatformRegular', sans-serif;
+		font-size: 11px;
+		color: #FFF;
+		a {
+			text-decoration: none;
+			color: #FFF;
+		}
+
+		@include mobilePhone {
+			font-size: 9px;
+		}
+	}
+}
+
+@mixin fullScreenBg() {
+    z-index:1000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow:hidden;
+
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-color: rgba(247,158,151,1.0);
+}
+
+#cardboard {
+    @include fullScreenBg();
+
+    @media screen and (orientation:portrait) {
+        display: block;
+    }
+    @media screen and (orientation:landscape) {
+        display: none;
+    }
+
+    #cardboardContainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        background-color: "#f79e97";
+
+        p {
+            font-weight: 300;
+            text-decoration: none;
+            line-height: 150%;
+            color: #FFF;
+        }
+
+        button {
+            cursor: pointer;
+            font-family: 'PlatformMedium', sans-serif;
+            letter-spacing: 0.05em;
+            font-size: 13px;
+            color: white;
+            padding-left:20px;
+            padding-right:20px;
+            height: 50px;
+            background-color: rgba(253,161,155,0.75);
+            border: white 2px solid;
+
+
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+
+        }
+
+        img{
+            display: block;
+            min-width:340px;
+            min-height:244px;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+#error {
+    @include fullScreenBg();
+    display: block;
+
+    #errorContainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width:320px;
+        min-height:240px;
+
+        background-color: "#ff0";
+
+        p {
+            position: absolute;
+            padding: 0px;
+            margin: 0px;
+            top: 0px;
+            left: 0px;
+            max-width:200px;
+        }
+
+        img{
+            max-width:400px;
+            max-height:300px;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 72%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        button {
+            cursor: pointer;
+            font-family: 'PlatformMedium', sans-serif;
+            letter-spacing: 0.05em;
+            font-size: 13px;
+            color: white;
+            position: absolute;
+            padding-left:20px;
+            padding-right:20px;
+            height: 50px;
+            background-color: rgba(253,161,155,0.75);
+            border: white 2px solid;
+            top: 0px;
+            right: 0px;
+        }
+    }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Musical Forest</title>
+    <meta name="description" content="Musical Forest">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Facebook Share -->
+    <meta property="og:url" content="https://www.forest.webvrexperiments.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="The Musical Forest" />
+    <meta property="og:description" content="Join users from around the world in a musical forest. A WebVR Experiment." />
+    <meta property="og:image" content="static/img/fbshare.jpg" />
+
+    <!-- Twitter Share -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Musical Forest">
+    <meta name="twitter:description" content="Join users from around the world in a musical forest. A WebVR Experiment.">
+    <meta name="twitter:image" content="static/img/twittershare.jpg">
+
+    <!-- Origin Trial Token, feature = WebVR, origin = https://webvrexperiments.com, expires = 2017-05-03 -->
+    <meta http-equiv="origin-trial" data-feature="WebVR" data-expires="2017-05-03" content="Allgoq39kmaNiIkhQWskjqassvbzrw3qS4XHzr+Q9UajnZMkgtHH1kWQK5JV5EgBDYynHxNdtmpF6pbE8cu4HwAAAABmeyJvcmlnaW4iOiJodHRwczovL3dlYnZyZXhwZXJpbWVudHMuY29tOjQ0MyIsImZlYXR1cmUiOiJXZWJWUiIsImV4cGlyeSI6MTQ5MzgxNzg5OCwiaXNTdWJkb21haW4iOnRydWV9">
+
+    <link rel="stylesheet" type="text/css" href="./build/style.css">
+    <link rel="icon" type="image/png" sizes="33x33" href="static/img/favicon.png">
+    <script src="config.js"></script>
+</head>
+<body>
+
+<!-- SPLASH SCREEN -->
+<div id="splash">
+    <div id="headphones" class="headphones">
+        <img src="static/img/Headphone.png" alt="headphone icon" class="icon">
+        <span class="text">Headphones Recommended</span>
+    </div>
+    <div id="enter-container">
+        <div id="loader">LOADING<img src="static/img/loader.gif"></div>
+        <div id="enterButton">
+            <div id="enter-360">No VR? Take a peek in 360 mode</div>
+        </div>
+    </div>
+    <div id="badges">
+        <div class="webvr-logo">
+            <a href="https://webvrexperiments.com" target="_blank"><img src="static/img/webVR_experiment@3x.png" alt="WebVR Logo"></a>
+        </div>
+        <div class="pipe"></div>
+        <div class="friends-with">
+            <img src="static/img/friends_with_g@3x.png" alt="Friends With Google">
+        </div>
+    </div>
+    <div id="about-button" class="about-button visible">
+        ?
+    </div>
+    <div id="about">
+        <div class="content">
+            <h1 class="about-head unselectable">The Musical Forest</h1>
+            <div class="description">
+                <p>
+                    Join users from around the world in a musical forest. Tap or click a shape to play it. If you're using a headset like the HTC VIVE, you can add shapes too. This experiment demonstrates cross-device co-presence in VR, allowing anyone to join in, no matter what device they're using.
+                </p>
+                <p>
+                    Technologies used: AFrame, Three.js, Tone.js, Node.js, PubSub
+                </p>
+                <p>
+                    Made by Google Creative Lab. Check out other WebVR Experiments <a href="https://webvrexperiments.com/" target="_blank">here</a> and check out the open-source code on <a href="https://github.com/googlecreativelab/webvr-musicalforest" target="_blank">GitHub</a>.
+                </p>
+            </div>
+            <img src="static/img/aboutbg.gif" alt="about">
+            <div class="close xbutton" id="about-xbutton"></div>
+        </div>
+    </div>
+    <div id="legal">
+        <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank">Privacy</a> &amp; <a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Terms</a>
+    </div>
+</div>
+
+<!-- MAIN -->
+<script src="/build/main.js"></script>
+
+<div id="spacer"></div>
+
+</body>
+</html>
