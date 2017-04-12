@@ -1,0 +1,53 @@
+{
+  "name": "webvr-musicalforest-backend",
+  "version": "1.0.0",
+  "description": "node.js websocket app server for forest.webvrexperiments.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "ENVIRONMENT_NAME=$(hostname) LOCAL_IP_ADDRESS=$(/sbin/ifconfig en0|grep -w inet|awk '{print $2}') PROJECT_ID=$(gcloud config list project --format json | jq -r .core.project) babel-node src/index.js",
+    "build": "babel src -d dist",
+    "clean": "rm -rf dist",
+    "serve": "NODE_ENV=production ENVIRONMENT_NAME=$(hostname) LOCAL_IP_ADDRESS=$(/sbin/ifconfig en0|grep -w inet|awk '{print $2}') PROJECT_ID=$(gcloud config list project --format json | jq -r .core.project) node dist/index.js",
+    "emulators": "parallelshell 'gcloud beta emulators datastore start --no-store-on-disk' 'gcloud beta emulators pubsub start'",
+    "start_emulated": "$(gcloud beta emulators datastore env-init) && $(gcloud beta emulators pubsub env-init) && NODE_ENV=production npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/googlecreativelab/webvr-musicalforest/"
+  },
+  "author": "Google Creative Lab",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-polyfill": "6.16.0",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-stage-2": "6.18.0",
+    "mocha": "3.2.0",
+    "nodemon": "1.11.0",
+    "parallelshell": "^2.0.0"
+  },
+  "dependencies": {
+    "@google-cloud/datastore": "0.7.0",
+    "@google-cloud/logging": "0.7.0",
+    "@google-cloud/pubsub": "0.8.0",
+    "@google-cloud/storage": "0.7.0",
+    "ajv": "4.10.0",
+    "arrify": "1.0.1",
+    "dateformat": "2.0.0",
+    "express": "4.14.0",
+    "fast-ratelimit": "2.0.6",
+    "grpc": "1.0.1",
+    "hashring": "3.2.0",
+    "hashtable": "2.0.1",
+    "http-proxy": "1.16.2",
+    "javascript-state-machine": "2.4.0",
+    "node-fetch": "1.6.3",
+    "object-sizeof": "1.1.1",
+    "redux": "3.6.0",
+    "redux-actions": "1.1.0",
+    "redux-saga": "0.14.3",
+    "tracer": "0.8.7",
+    "uuid": "3.0.1",
+    "uws": "0.14.1"
+  }
+}
