@@ -438,7 +438,7 @@ const setPositionForSphereInRoom = ( state, action ) => {
         return state;
     }
 
-    const positionLabel = messageConstants.INCOMING_MESSAGE_COMPONENTS.UPDATE_SPHERE_POSITION.POSITION;
+    const positionLabel = messageConstants.INCOMING_MESSAGE_COMPONENTS.UPDATE_CLIENT_COORDS.SPHERE_POSITION;
 
     state.rooms[ action.roomName ].content.spheres[ action.sphereId ][ positionLabel ] = action.position;
 
