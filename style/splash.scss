@@ -14,6 +14,14 @@
        url('/static/fonts/Platform-Regular-Web.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'PlatformLight';
+  src: url('/static/fonts/Platform-Light-Web.eot');
+  src: url('/static/fonts/Platform-Light-Web.eot?#iefix') format('embedded-opentype'),
+       url('/static/fonts/Platform-Light-Web.woff2') format('woff2'),
+       url('/static/fonts/Platform-Light-Web.woff') format('woff');
+}
+
 html, body{
   height: 100%;
   font-family: 'PlatformRegular', sans-serif;
@@ -74,7 +82,7 @@ html, body{
 	background-repeat:  no-repeat;
 	background-attachment: fixed;
 	background-size:  cover;
-    background-color: rgb(255,175,170);
+    background-color: rgb(255,161,153);
 
     // ----------------------------------------------------
     // enter buttons
@@ -215,7 +223,7 @@ html, body{
 			line-height: $buttonSize;
 			height: $buttonSize;
 			font-size: 12px;
-			width: 160px;
+			width: 170px;
 			position: absolute;
 			text-align: right;
 			left: $headphoneSize + 5px;
@@ -241,6 +249,7 @@ html, body{
 		padding: 1px;
 		position: absolute;
 		cursor: pointer;
+        font-family: 'PlatformLight', sans-serif;
 		font-size: 20px;
 		img {
 			width: 30px;
@@ -281,17 +290,25 @@ html, body{
         }
         h1 {
             font-family: 'PlatformMedium', sans-serif;
+            font-weight: 100;
             font-size: 7.0vw;
             line-height: 0%;
         }
 
         .description {
             left:0px;
+            margin-left:10px;
+
+            @media (max-width:$mediumSize) {
+                margin-left:0px;
+            }
 			margin-top: -0vh;
             text-decoration: none;
             p {
+                font-family: 'PlatformLight', sans-serif;
                 max-width: 50%;
-                font-weight: 300;
+                font-weight: 100;
+                line-height: 140%;
         		color: #FFF;
 
                 @media (max-width:$mediumSize) {
@@ -301,7 +318,7 @@ html, body{
                 a {
                     font-weight: 300;
             		text-decoration: underline;
-            		color: #8396F3;
+            		color: #8D81E8;
             	}
         	}
         }
@@ -312,7 +329,7 @@ html, body{
             top: 45%;
             right: 0px;
             margin-right:25%;
-            width: 25%;
+            width: 20%;
             height: auto;
             display:block;
 
@@ -425,7 +442,7 @@ html, body{
 		position:absolute;
 		right: 20px;
 		bottom: 21px;
-		font-family: 'PlatformRegular', sans-serif;
+		font-family: 'PlatformLight', sans-serif;
 		font-size: 11px;
 		color: #FFF;
 		a {
@@ -475,7 +492,7 @@ html, body{
         background-color: "#f79e97";
 
         p {
-            font-weight: 300;
+            font-weight: 100;
             text-decoration: none;
             line-height: 150%;
             color: #FFF;
