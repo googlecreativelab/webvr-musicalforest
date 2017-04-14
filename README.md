@@ -64,7 +64,7 @@ Navigation: use the WASD keys on the keyboard. Use the mouse to change the field
 ## Technologies Used
 ### Frontend
 
-Musical Forest uses the uses [A-Frame](https://aframe.io) which is built with the WebVR standard and [Tone.js](https://github.com/Tonejs/Tone.js/) for sound.
+Musical Forest uses [A-Frame](https://aframe.io) which is built with the WebVR standard and [Tone.js](https://github.com/Tonejs/Tone.js/) for sound.
 
 ### Backend
 
