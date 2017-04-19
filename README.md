@@ -34,29 +34,29 @@ Musical Forest responsively adapts features depending on the capabilities of the
 
 ### Vive/Oculus
 
-Play: hit the shapes with your controller to hear its sound. The volume of the sound changes depending on how hard you hit it. 
-Create: tap the trigger to create a new shape. Rotate the circular pad to change the note. 
-Rearrange: place the controller over an existing object, press and hold the trigger to grab it. Move your controller and release to move it to a new space. Hovering your controller over an object and rotating the circular pad will change the type of shape and it’s sound.
+Play: hit the shapes with your controller to hear its sound. The volume of the sound changes depending on how hard you hit it. <br>
+Create: tap the trigger to create a new shape. Rotate the circular pad to change the note. <br>
+Rearrange: place the controller over an existing object, press and hold the trigger to grab it. Move your controller and release to move it to a new space. Hovering your controller over an object and rotating the circular pad will change the type of shape and it’s sound.<br>
 Navigation: move within the bounds of your roomscale environment to interact with the objects within the experience.
 
 ### Daydream
 
-Play: Hit the shapes with your controller to hear their sounds. 
+Play: Hit the shapes with your controller to hear their sounds. <br>
 Navigation: point the Daydream controller at the ground and a circle will appear. Press the main button on the controller to teleport to that highlighted spot.
 
 ### Cardboard
 
-Play: gaze at an object and see it glow. Tap the interaction button to hear that object.
+Play: gaze at an object and see it glow. Tap the interaction button to hear that object.<br>
 Navigation: gaze at the ground and a circle will appear. Tap the interaction button to teleport to the highlighted spot.
 
 ### Magic Window
 
-Interaction: tap any object to hear the sound of that object. 
+Interaction: tap any object to hear the sound of that object. <br>
 Navigation: gaze at the ground and a circle will appear. Tap anywhere to teleport to where the reticle is pointing.
 
 ### Desktop
 
-Interaction: use the mouse to click any object to hear its sound. The volume of the sound is dictated by the object’s distance from the user.
+Interaction: use the mouse to click any object to hear its sound. The volume of the sound is dictated by the object’s distance from the user.<br>
 Navigation: use the WASD keys on the keyboard. Use the mouse to change the field of view by clicking in empty space and dragging. 
 <br>
 <br>
